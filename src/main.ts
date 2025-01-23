@@ -27,7 +27,7 @@ function QuillResizeModule(quill: Quill, options?: QuillResizeModuleOptions) {
 
   container.addEventListener("click", (e: Event) => {
     const target: HTMLElement = e.target as HTMLElement;
-    if (e.target && ["img", "video"].includes(target.tagName.toLowerCase())) {
+    if (container.isContentEditable && e.target && ["img", "video"].includes(target.tagName.toLowerCase())) {
       resizeTarge = target;
       resizePlugin = new ResizePlugin(
         target,
